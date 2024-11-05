@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search } from "lucide-react";
+import { Lock, Search } from "lucide-react";
 
 interface OfferFilterProps {
   searchTerm: string;
@@ -47,28 +47,19 @@ export function OfferFilter({
     <div className="bg-white rounded-lg p-4 mb-8 shadow-sm">
       <div className="flex flex-col space-y-4">
         {/* Container para Saldo Bloqueado */}
-        <div className="bg-blue-50 rounded-lg p-3 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            {/* Ícone opcional para destacar o saldo */}
-            <svg
-              className="w-5 h-5 text-blue-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-              />
-            </svg>
-            <p className="text-primary font-semibold text-lg">
-              Saldo Bloqueado R$ 7,00
-            </p>
+        <div className="bg-muted/30 rounded-lg p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Lock className="h-4 w-4 text-muted-foreground" />
+              <span className="text-sm font-medium">Carteira digital</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-lg font-semibold">R$ 250,00</span>
+            </div>
           </div>
-          <p className="text-gray-500 text-sm">(será liberado em 01/03)</p>
+          <div className="mt-1 text-xs text-muted-foreground text-right">
+            O saldo estará disponível em 01/03/2025
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">

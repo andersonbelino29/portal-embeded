@@ -32,7 +32,7 @@ export default function RootLayout({
   }, [searchParams]);*/
 
   return (
-    <html lang="en" className={"theme-blue"}>
+    <html lang="en" className={"theme-red"}>
       <body
         className={`${roboto.className} antialiased bg-white ${
           true ? "" : "hidden"
