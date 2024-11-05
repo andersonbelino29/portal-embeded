@@ -18,11 +18,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  //const searchParams = useSearchParams();
-  //const [theme, setTheme] = useState("theme-stone");
-  //const [isThemeLoaded, setIsThemeLoaded] = useState(false);
+  /*const searchParams = useSearchParams();
+  const [theme, setTheme] = useState("theme-stone");
+  const [isThemeLoaded, setIsThemeLoaded] = useState(false);
 
-  /*useEffect(() => {
+  useEffect(() => {
     const themeParam = searchParams.get("theme");
 
     if (themeParam) {
@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang="en" className={"theme-blue"}>
       <body
         className={`${roboto.className} antialiased bg-white ${
-          false ? "" : "hidden"
+          true ? "" : "hidden"
         }`}
       >
         <QueryClientProvider client={queryClient}>
