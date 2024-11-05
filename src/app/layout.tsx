@@ -3,8 +3,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Roboto } from "next/font/google";
 
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense } from "react";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -19,28 +18,30 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const searchParams = useSearchParams();
-  const [theme, setTheme] = useState("theme-stone");
-  const [isThemeLoaded, setIsThemeLoaded] = useState(false);
+  //const searchParams = useSearchParams();
+  //const [theme, setTheme] = useState("theme-stone");
+  //const [isThemeLoaded, setIsThemeLoaded] = useState(false);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const themeParam = searchParams.get("theme");
 
     if (themeParam) {
       setTheme(themeParam);
     }
     setIsThemeLoaded(true);
-  }, [searchParams]);
+  }, [searchParams]);*/
 
   return (
-    <html lang="en" className={theme}>
+    <html lang="en" className={"theme-blue"}>
       <body
         className={`${roboto.className} antialiased bg-white ${
-          isThemeLoaded ? "" : "hidden"
+          false ? "" : "hidden"
         }`}
       >
         <QueryClientProvider client={queryClient}>
-          <main className="flex-1 overflow-y-auto pt-16">{children}</main>
+          <Suspense fallback={<div>Loading content...</div>}>
+            <main className="flex-1 overflow-y-auto pt-16">{children}</main>
+          </Suspense>
         </QueryClientProvider>
       </body>
     </html>
